@@ -1,30 +1,44 @@
-import React from 'react'
-import types from '../constanst/types'
-import { NavLink, useParams } from 'react-router-dom'
+import React from 'react';
+import types from '../constanst/types';
+import { NavLink, useParams } from 'react-router-dom';
+
 const TyoeLinks = () => {
-  const {id} = useParams()
-  
+  const { id } = useParams();
 
-    const ourTypes = types.map(e=> (
-        <NavLink 
-        to={`/type/${e.name}`}
-        key={e.name}
-        className={`${id === e.name && "font-bold text-[#dd2a5b]  underline border-b-[#dd2a5b] border-[#dd2a5b] md:text-black"}  flex items-center px-5 py-2   flex-1 mx-1 min-w-fit `}
-        >
-            {e.name}</NavLink>
-    ))
-  return (
-    <ul
-    className={`w-full  a pb-3 flex     overflow-x-scroll `}
+  const ourTypes = types.map((type) => (
+    <NavLink
+      to={`/type/${type.name}`}
+      key={type.name}
+      className={`px-4 py-2 mx-2 text-sm md:text-base rounded-lg whitespace-nowrap transition-all 
+        ${
+          id === type.name
+            ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold'
+            : 'text-gray-600 hover:text-purple-600 hover:underline'
+        }`}
     >
-         <NavLink 
-        to={`/`}
-        className={`${!id && "font-bold text-[#dd2a5b]  underline border-b-[#dd2a5b] border-[#dd2a5b] md:text-black"}  flex items-center px-5 py-2   flex-1 mx-1 min-w-fit `}
-        >
-            all</NavLink>
-{ourTypes}
-    </ul>
-  )
-}
+      {type.name}
+    </NavLink>
+  ));
 
-export default TyoeLinks
+  return (
+    <div className="w-full a overflow-x-auto bg-gray-100 py-2">
+      <div className="flex flex-nowrap items-center px-4">
+        {/* "All" option */}
+        <NavLink
+          to="/"
+          className={`px-4 py-2 mx-2 text-sm md:text-base rounded-lg whitespace-nowrap transition-all 
+            ${
+              !id
+                ? 'bg-gradient-to-br from-purple-500 to-pink-500 text-white font-semibold'
+                : 'text-gray-600 hover:text-purple-600 hover:underline'
+            }`}
+        >
+          All
+        </NavLink>
+        {ourTypes}
+      </div>
+    </div>
+  );
+};
+
+export default TyoeLinks;

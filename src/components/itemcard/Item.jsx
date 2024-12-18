@@ -5,16 +5,11 @@ import Remove from "../remove/Remove";
 
 const ItemCard = ({ item }) => {
   const [animate, setAnimate] = useState(false);
-
-  
 const hide = ()=> {
     setAnimate(false)
 }
-
   const handleAddItem = () => {
     setAnimate(true)
-
-   
   };
 
   

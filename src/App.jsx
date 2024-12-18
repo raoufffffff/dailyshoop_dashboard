@@ -1,5 +1,6 @@
 import React from 'react'
 import {  Outlet } from 'react-router-dom'
+import Navbar from './components/nav/Navbar'
 
 const App = () => {
   
@@ -7,7 +8,7 @@ const App = () => {
     <main
     className='min-h-screen w-dvw overflow-x-hidden'
     >
-      
+     <Navbar /> 
       <Outlet />
     </main>
   )
