@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ItemCard from '../../components/itemcard/Item'
-import PlaceholderList from '../../components/loading'
+import LoadingSpinner from '../../components/loading'
 const Home = () => {
   const [loading, setloading] = useState(true)
   const [items, setitems] = useState([])
@@ -32,7 +32,7 @@ getitems()
            className='w-full flex flex-wrap justify-center items-center'
            >
  {loading ?
- <PlaceholderList />
+ <LoadingSpinner />
  :
  items.map((e, i)=>(
   <ItemCard item={e} key={i}/>

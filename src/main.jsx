@@ -7,6 +7,7 @@ import Add from './pages/add/Add.jsx';
 import Home from './pages/home/Home.jsx';
 import Type from './pages/type/Tyoe.jsx';
 import Order from './pages/order/Order.jsx';
+import Edite from './pages/edet/Edite.jsx';
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -15,6 +16,7 @@ const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/add' element={<Add />}/>
     <Route path='/type/:id' element={<Type />}/>
     <Route path='/order' element={<Order />}/>
+    <Route path='/edite/:id' element={<Edite />}/>
   </Route>
 ));
 
