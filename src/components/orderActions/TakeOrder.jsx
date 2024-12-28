@@ -6,7 +6,7 @@ const TakeOrder = ({ id, hide }) => {
     
     const handleCancel = async () => {
         try {
-          await axios.get(`https://daily-api.onrender.com/order/take/${id}`);
+          await axios.put(`https://daily-api.onrender.com/order/take/${id}`);
           hide();
         } catch (error) {
           console.error('Error while deleting:', error);

@@ -34,7 +34,7 @@ const Remove = ({ id, hide }) => {
         </p>
         <div className="flex justify-center gap-4">
         <Link
-        to={`edite/${id}`}
+        to={`/edite/${id}`}
             onClick={handleCancel}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-red-700 transition-all duration-200"
           >
