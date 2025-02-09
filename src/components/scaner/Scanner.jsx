@@ -1,26 +1,34 @@
-import { Component } from 'react';
-import BarcodeReader from 'react-barcode-reader';
+import React, { useEffect, useRef } from 'react';
+import { Html5QrcodeScanner } from 'html5-qrcode';
 
-class BarcodeScanner extends Component {
-  handleScan = (data) => {
-    if (data) {
-      console.log('Barcode scanned:', data);
-      // You can add additional logic here, such as updating state or making API calls.
-    }
-  };
+const BarcodeScanner = ({ onScanSuccess }) => {
+  const scannerRef = useRef(null);
 
-  handleError = (err) => {
-    console.error('Barcode scanning error:', err);
-  };
+  useEffect(() => {
+    const scanner = new Html5QrcodeScanner('barcode-scanner', {
+      qrbox: {
+        width: 250,
+        height: 250,
+      },
+      fps: 5,
+    });
 
-  render() {
-    return (
-      <div>
-        <h2>Barcode Scanner</h2>
-        <BarcodeReader onError={this.handleError} onScan={this.handleScan} />
-      </div>
-    );
-  }
-}
+    scanner.render((decodedText) => {
+      onScanSuccess(decodedText);
+    });
+
+    scannerRef.current = scanner;
+
+    return () => {
+      if (scannerRef.current) {
+        scannerRef.current.clear().catch(error => {
+          console.error("Failed to clear html5QrcodeScanner. ", error);
+        });
+      }
+    };
+  }, [onScanSuccess]);
+
+  return <div id="barcode-scanner" style={{ width: '100%' }}></div>;
+};
 
 export default BarcodeScanner;

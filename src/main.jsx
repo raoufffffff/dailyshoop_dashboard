@@ -8,7 +8,7 @@ import Home from './pages/home/Home.jsx';
 import Type from './pages/type/Tyoe.jsx';
 import Order from './pages/order/Order.jsx';
 import Edite from './pages/edet/Edite.jsx';
-import BarcodeScanner from './pages/read/Read.jsx';
+import Read from './pages/read/Read.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -17,7 +17,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/type/:id' element={<Type />} />
     <Route path='/order' element={<Order />} />
     <Route path='/edite/:id' element={<Edite />} />
-    <Route path='/read' element={<BarcodeScanner />} />
+    <Route path='/read' element={<Read />} />
   </Route>
 ));
 
