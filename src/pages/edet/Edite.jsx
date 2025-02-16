@@ -100,7 +100,7 @@ red('/')
       setIsUploading(true);
       try {
         const response = await axios.post(
-          "https://api.imgbb.com/1/upload?key=6b2e09466d2a7f9022678000fe90fe67",
+          "https://api.imgbb.com/1/upload?key=6f40cf04ceee78c584ecae61a90c833f",
           formData
         );
         setItem({ ...Item, img: response.data.data.url });
