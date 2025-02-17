@@ -16,6 +16,14 @@ const Navbar = () => {
     {
       name: "Order",
       link: "order"
+    },
+    {
+      name: "scan",
+      link: "read"
+    },
+    {
+      name: "see evry item",
+      link: "evry"
     }
   ];
 

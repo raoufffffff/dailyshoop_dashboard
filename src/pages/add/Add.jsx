@@ -6,52 +6,52 @@ import { useNavigate } from "react-router-dom";
 const categories = [
   {
     name: "Dairy & Eggs",
-    types: ["Milk_yogurt", "soft_cheese", "yaourt", "egg", "dry_milk_powder", "Various_cheeses","Fresh_cream_and_bechamel", "other"]
-},
-{
+    types: ["Milk_yogurt", "soft_cheese", "yaourt", "egg", "dry_milk_powder", "Various_cheeses", "Fresh_cream_and_bechamel", "other"]
+  },
+  {
     name: "Soft Drinks & Juices",
     types: ["Mineral_and_sparkling_water", "Juices", "Soft_drinks", "Energy_drinks", "other"]
-},
-{
+  },
+  {
     name: "Cans & Jars",
     types: ["tomate", "harisa_and_hmis", "thon", "corn_and_mais", "canned_fruits_and_vegetables", "Canned_meat", "other"]
-},
-{
+  },
+  {
     name: "Nuts & Seeds",
     types: ["Beans", "Lentils", "Hummus", "Peas", "other"]
-},
-{
+  },
+  {
     name: "Chocolates",
-    types: ["Chocolates", "biscuit", "Madeleine", "gofrit","Cakes", "Nuts", "Cereal_flakes", "other"]
-},
-{
+    types: ["Chocolates", "biscuit", "Madeleine", "gofrit", "Cakes", "Nuts", "Cereal_flakes", "other"]
+  },
+  {
     name: "Household Care",
-    types: ["javal", "Hand_wash","Machine_wash", "wash_the_dishes", "Surface_cleaning", "Air_freshener","fabric_softener", "other"]
-},
-{
+    types: ["javal", "Hand_wash", "Machine_wash", "wash_the_dishes", "Surface_cleaning", "Air_freshener", "fabric_softener", "other"]
+  },
+  {
     name: "Baby Care",
     types: ["Baby_diapers", "baby_milk", "Clean_and_care_for_children", "other"]
-}, 
-{
+  },
+  {
     name: "body",
-    types: ["shampoing","shower_gel","deodorant","scented_soap","Liquid_soap","Oral_and_dental_care","other"]
-},
-{
+    types: ["shampoing", "shower_gel", "deodorant", "scented_soap", "Liquid_soap", "Oral_and_dental_care", "other"]
+  },
+  {
     name: "Pastries",
-    types: ["spagity","riz","macaroni","Traditional_Pastries","other"]
-},
-{
+    types: ["spagity", "riz", "macaroni", "Traditional_Pastries", "other"]
+  },
+  {
     name: "coffe",
     types: ["coffe", "coffee_capsule", "tea", "Drinks_to_prepare", "other"]
-},
-{
+  },
+  {
     name: "candy",
-    types: ["Chocolate_and_cream", "semolina", "oil", "flour", "margarine", "starch","Sugar_and_honey","jam", "other"]
-},
-{
+    types: ["Chocolate_and_cream", "semolina", "oil", "flour", "margarine", "starch", "Sugar_and_honey", "jam", "other"]
+  },
+  {
     name: "sals",
     types: []
-}
+  }
 
 ];
 
@@ -83,7 +83,7 @@ const Add = () => {
       setIsUploading(true);
       try {
         const response = await axios.post(
-          "https://api.imgbb.com/1/upload?key=6f40cf04ceee78c584ecae61a90c833f",
+          "https://api.imgbb.com/1/upload?key=601d2afc4941e8df3f0b14a1531eb76f",
           formData
         );
         setItem({ ...Item, img: response.data.data.url });
@@ -98,17 +98,17 @@ const Add = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-try {
-  await axios.post('https://daily-api.onrender.com/item', Item)
-  .then(()=> {
-red('/')
-  })
-} catch (error) {
-  console.log('a');
-  
-}
+    try {
+      await axios.post('https://daily-api-tan.vercel.app/item', Item)
+        .then(() => {
+          red('/')
+        })
+    } catch (error) {
+      console.log('a');
+
+    }
   };
-console.log(Item);
+  console.log(Item);
 
   return (
     <div className="w-full h-dvh flex justify-center items-center bg-gray-50">

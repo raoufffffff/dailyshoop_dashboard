@@ -9,6 +9,7 @@ import Type from './pages/type/Tyoe.jsx';
 import Order from './pages/order/Order.jsx';
 import Edite from './pages/edet/Edite.jsx';
 import Read from './pages/read/Read.jsx';
+import Evry from './pages/evry/Evry.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -18,6 +19,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/order' element={<Order />} />
     <Route path='/edite/:id' element={<Edite />} />
     <Route path='/read' element={<Read />} />
+    <Route path='/evry' element={<Evry />} />
   </Route>
 ));
 

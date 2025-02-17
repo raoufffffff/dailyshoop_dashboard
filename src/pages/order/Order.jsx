@@ -14,34 +14,34 @@ const Order = () => {
   const [loading, setLoading] = useState(true);
   const [showMap, setshowMap] = useState(false);
   const [error, setError] = useState(null);
-let getlocation = (e)=>{
-  let a = []
-  for (let i = 0; i < e.length; i++) {
-     a = [...a, {
-      price: e[i].ride,
-      name: e[i].user,
-      phone: e[i].phone,
-      lat: e[i].location.location[0],
-      lng: e[i].location.location[1]
-     }];
+  let getlocation = (e) => {
+    let a = []
+    for (let i = 0; i < e.length; i++) {
+      a = [...a, {
+        price: e[i].ride,
+        name: e[i].user,
+        phone: e[i].phone,
+        lat: e[i].location.location[0],
+        lng: e[i].location.location[1]
+      }];
+    }
+    return a
   }
-  return a
-}
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
       setError(null);
       try {
         const about = searchparams.get('about');
-        let endpoint = 'https://daily-api.onrender.com/order/';
+        let endpoint = 'https://daily-api-tan.vercel.app/order/';
 
         // Determine endpoint based on "about" parameter
         if (about === 'cancel') {
-          endpoint = 'https://daily-api.onrender.com/order/cancel/show';
+          endpoint = 'https://daily-api-tan.vercel.app/order/cancel/show';
         } else if (about === 'take') {
-          endpoint = 'https://daily-api.onrender.com/order/take/show';
+          endpoint = 'https://daily-api-tan.vercel.app/order/take/show';
         } else if (about === 'done') {
-          endpoint = 'https://daily-api.onrender.com/order/done/show';
+          endpoint = 'https://daily-api-tan.vercel.app/order/done/show';
         }
 
         const response = await axios.get(endpoint);
@@ -57,7 +57,7 @@ let getlocation = (e)=>{
 
     fetchOrders();
   }, [searchparams]);
-console.log(location);
+  console.log(location);
 
   if (loading) {
     return <div className="text-center py-4">Loading...</div>;
@@ -66,7 +66,7 @@ console.log(location);
   if (error) {
     return <div className="text-center text-red-500 py-4">{error}</div>;
   }
-const hide = ()=> setshowMap(false)
+  const hide = () => setshowMap(false)
   return (
     <div className="w-full">
       {/* Table Links */}
@@ -101,7 +101,7 @@ const hide = ()=> setshowMap(false)
               <AnimatedTable order={e} key={e._id} />
             ))}
             {order.length == 0 && <h1
-            className='text-center '
+              className='text-center '
             >no order</h1>}
           </tbody>
           {/* Table Footer */}
@@ -118,12 +118,12 @@ const hide = ()=> setshowMap(false)
         </motion.table>
       </div>
       <div
-      onClick={()=> setshowMap(true)}
-      className='fixed bottom-5 right-5'
+        onClick={() => setshowMap(true)}
+        className='fixed bottom-5 right-5'
       >
         <FaMap
-        size={27}
-        className='text-green-700' />
+          size={27}
+          className='text-green-700' />
       </div>
       {showMap && <MyMap hide={hide} location={location} />}
     </div>

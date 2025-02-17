@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Remove = ({ id, hide }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://daily-api.onrender.com/item/${id}`);
+      await axios.delete(`https://daily-api-tan.vercel.app/item/${id}`);
       hide();
     } catch (error) {
       console.error('Error while deleting:', error);
@@ -33,8 +33,8 @@ const Remove = ({ id, hide }) => {
           Do you really want to delete this item? This action cannot be undone.
         </p>
         <div className="flex justify-center gap-4">
-        <Link
-        to={`/edite/${id}`}
+          <Link
+            to={`/edite/${id}`}
             onClick={handleCancel}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-red-700 transition-all duration-200"
           >

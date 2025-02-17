@@ -12,6 +12,7 @@
   "dependencies": {
     "@zxing/library": "^0.21.3",
     "axios": "^1.7.9",
+    "firebase": "^11.3.1",
     "html5-qrcode": "^2.3.8",
     "leaflet": "^1.9.4",
     "motion": "^11.15.0",
