@@ -10,6 +10,8 @@ import Order from './pages/order/Order.jsx';
 import Edite from './pages/edet/Edite.jsx';
 import Read from './pages/read/Read.jsx';
 import Evry from './pages/evry/Evry.jsx';
+import Code from './pages/code/Code.jsx';
+import Codes from './pages/Codes/Codes.jsx';
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -20,6 +22,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='/edite/:id' element={<Edite />} />
     <Route path='/read' element={<Read />} />
     <Route path='/evry' element={<Evry />} />
+    <Route path='/code' element={<Code />} />
+    <Route path='/codes' element={<Codes />} />
   </Route>
 ));
 

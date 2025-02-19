@@ -24,6 +24,14 @@ const Navbar = () => {
     {
       name: "see evry item",
       link: "evry"
+    },
+    {
+      name: "all codes",
+      link: "codes"
+    },
+    {
+      name: "Create a new code",
+      link: "code"
     }
   ];
 
