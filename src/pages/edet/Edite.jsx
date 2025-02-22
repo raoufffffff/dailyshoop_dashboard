@@ -37,7 +37,7 @@ const categories = [
   },
   {
     name: "Pastries",
-    types: ["spagity", "riz", "macaroni", "Traditional_Pastries", "other"]
+    types: ["spagity", "Boulangerie", "riz", "macaroni", "Traditional_Pastries", "other"]
   },
   {
     name: "coffe",
@@ -49,7 +49,7 @@ const categories = [
   },
   {
     name: "sals",
-    types: []
+    types: ["Sauces", "épices", "other"]
   }
 
 ];

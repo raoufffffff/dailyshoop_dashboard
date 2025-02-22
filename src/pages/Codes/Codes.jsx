@@ -5,7 +5,15 @@ import LoadingSpinner from "../../components/loading";
 const Codes = () => {
     const [coodes, setcoodes] = useState([]);
     const [Loading, setLoading] = useState(true);
+    const deletcode = async (e) => {
+        try {
+            await axios.delete(`https://daily-api-tan.vercel.app/code/${e}`)
+                .then(res => console.log(res.data))
+        } catch (error) {
+            console.log(error);
 
+        }
+    }
     useEffect(() => {
         const getcoodes = async () => {
             try {
@@ -62,6 +70,12 @@ const Codes = () => {
                                         }`}
                                 >
                                     {e.used ? "Used" : "Not Used"}
+                                </span>
+                                <span
+                                    onClick={() => deletcode(e._id)}
+                                    className={`inline-block px-2 py-1  text-sm font-medium rounded-md $bg-red-100 text-white cursor-pointer mt-5 text-center bg-red-700`}
+                                >
+                                    delete
                                 </span>
                             </div>
                         ))}
