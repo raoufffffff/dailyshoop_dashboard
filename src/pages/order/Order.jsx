@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import AnimatedTable from '../../components/oder/OrderShow';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import TabelLinks from '../../components/tabelLinks/TabelLinks';
-import MyMap from '../../components/map/MyMap';
-import { FaMap } from 'react-icons/fa';
+
 
 const Order = () => {
   const [searchparams] = useSearchParams(); // No need to setsearchparams here
   const [order, setOrder] = useState([]);
   const [location, setlocation] = useState([])
   const [loading, setLoading] = useState(true);
-  const [showMap, setshowMap] = useState(false);
   const [error, setError] = useState(null);
   let getlocation = (e) => {
     let a = []
@@ -46,7 +44,6 @@ const Order = () => {
 
         const response = await axios.get(endpoint);
         setOrder(response.data.result || []); // Fallback to empty array if no result
-        setlocation(getlocation(response.data.result))
       } catch (err) {
         console.error('Failed to fetch orders:', err);
         setError('Failed to load orders. Please try again.');
@@ -66,7 +63,6 @@ const Order = () => {
   if (error) {
     return <div className="text-center text-red-500 py-4">{error}</div>;
   }
-  const hide = () => setshowMap(false)
   return (
     <div className="w-full">
       {/* Table Links */}
@@ -92,6 +88,7 @@ const Order = () => {
               <th className="px-4 py-2 border min-w-[270px] border-gray-200 text-left">Items</th>
               <th className="px-4 py-2 border border-gray-200 text-left">Price</th>
               <th className="px-4 py-2 border border-gray-200">Ride</th>
+              <th className="px-4 py-2 border border-gray-200">promo</th>
               <th className="px-4 py-2 border border-gray-200">Total</th>
             </tr>
           </thead>
@@ -117,15 +114,7 @@ const Order = () => {
           </tfoot>
         </motion.table>
       </div>
-      <div
-        onClick={() => setshowMap(true)}
-        className='fixed bottom-5 right-5'
-      >
-        <FaMap
-          size={27}
-          className='text-green-700' />
-      </div>
-      {showMap && <MyMap hide={hide} location={location} />}
+
     </div>
   );
 };
