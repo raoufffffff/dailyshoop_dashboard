@@ -6,7 +6,7 @@ const DaneOrder = ({ id, hide }) => {
 
   const handleCancel = async () => {
     try {
-      await axios.put(`https://daily-api-tan.vercel.app/order/done/${id}`);
+      await axios.put(`https://daily-api-tan.vercel.app/order/delivered/${id}`);
       hide();
     } catch (error) {
       console.error('Error while deleting:', error);

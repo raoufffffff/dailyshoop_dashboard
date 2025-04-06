@@ -38,12 +38,12 @@ const AnimatedTable = ({ order }) => {
             ></button></>}
         </td>
         <td className="px-4 py-2 border border-gray-200 flex items-center gap-3">
-          {order.location.name}
+          {order.location?.name}
           <div>
-            <p className="font-semibold">{order.user}</p>
+            <p className="font-semibold">{order?.user}</p>
             <a
-              href={`tel:${order.phone}`} aria-label="Call Us at +1234567890"
-              className="text-sm text-gray-500">{order.phone}</a>
+              href={`tel:${order?.phone}`} aria-label="Call Us at +1234567890"
+              className="text-sm text-gray-500">{order?.phone}</a>
           </div>
         </td>
         <td className="px-4 py-2 border border-gray-200">
@@ -75,7 +75,10 @@ const AnimatedTable = ({ order }) => {
           </h1>
         </td>
         <td className="px-4 py-2 border border-gray-200 text-center">
-          {order.promotype == "free delevery" ? order.price : order.ride + order.price}  DA
+          {order.price}  DA
+        </td>
+        <td className="px-4 py-2 border border-gray-200 text-center">
+          {order.usecridet ? "oder by cridet" : "none"}
         </td>
       </motion.tr>
 

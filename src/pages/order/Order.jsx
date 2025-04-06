@@ -90,6 +90,7 @@ const Order = () => {
               <th className="px-4 py-2 border border-gray-200">Ride</th>
               <th className="px-4 py-2 border border-gray-200">promo</th>
               <th className="px-4 py-2 border border-gray-200">Total</th>
+              <th className="px-4 py-2 border border-gray-200">usecridet</th>
             </tr>
           </thead>
           {/* Table Body */}
